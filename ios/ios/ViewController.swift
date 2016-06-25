@@ -7,19 +7,47 @@
 //
 
 import UIKit
-import Alamofire
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var usernameTextfield: UITextField!
+    @IBOutlet weak var passwordTextfield: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    let service = Services()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        service.getToday { (data, error) in
+            if let today = data?["today"] as? String {
+                self.dateLabel.text = today
+            }
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func loginButtonDidPressed(sender: AnyObject) {
+        if let username = usernameTextfield.text,
+            password = passwordTextfield.text {
+            service.login(username, password: password, callback: { (data, error) in
+                if let result = data?["result"] as? Bool {
+                    if result {
+                        self.showAlert("Login", message: "Success!")
+                    } else {
+                        self.showAlert("Login", message: "Invalid Username or Password")
+                    }
+                }
+            })
+        }
     }
-
+    
+    func showAlert(title:String, message:String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(okButton)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 
 }
