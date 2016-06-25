@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    let service = Services()
+    let service = Services.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
             service.login(username, password: password, callback: { (data, error) in
                 if let result = data?["result"] as? Bool {
                     if result {
-                        self.showAlert("Login", message: "Success!")
+                        self.performSegueWithIdentifier("gotoMain", sender: nil)
                     } else {
                         self.showAlert("Login", message: "Invalid Username or Password")
                     }
