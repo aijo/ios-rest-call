@@ -29,8 +29,24 @@ class iosUITests: XCTestCase {
     }
     
     func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        let username = app.textFields["Username"]
+        username.typeText("abc")
+        
+        let passwordSecureTextField = app.secureTextFields["Password"]
+        passwordSecureTextField.tap()
+        let password = app.secureTextFields["Password"]
+        password.typeText("abc")
+        
+        let loginButton = app.buttons["Login"]
+        loginButton.tap()
+        app.alerts["Login"].collectionViews.buttons["OK"].tap()
+        usernameTextField.tap()
+        
+        let alert = app.alerts["Login"]
+        XCTAssertNotNil(alert)
     }
     
 }

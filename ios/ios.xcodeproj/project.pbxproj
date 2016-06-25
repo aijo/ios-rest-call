@@ -19,6 +19,7 @@
 		C889CFA11D1E5C74007FC2BA /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889CFA01D1E5C74007FC2BA /* TableViewController.swift */; };
 		C889CFA31D1E5E6D007FC2BA /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889CFA21D1E5E6D007FC2BA /* AddViewController.swift */; };
 		C889CFA51D1E6382007FC2BA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889CFA41D1E6382007FC2BA /* Item.swift */; };
+		C889CFAC1D1E7402007FC2BA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889CFA41D1E6382007FC2BA /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -356,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C889CFAC1D1E7402007FC2BA /* Item.swift in Sources */,
 				C889CF651D1E12D6007FC2BA /* iosTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

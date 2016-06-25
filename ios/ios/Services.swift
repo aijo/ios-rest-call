@@ -14,7 +14,7 @@ typealias GetItemCompletion = (data: [Item]?, error: NSError?) -> Void
 
 class Services {
     
-    let host:String = "http://10.10.83.140:8080"
+    let host:String = "http://localhost:8080"
     
     class var sharedInstance: Services {
         struct Static {

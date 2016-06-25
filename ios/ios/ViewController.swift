@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    let service = Services.sharedInstance
+    var service = Services.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +48,10 @@ class ViewController: UIViewController {
         let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alert.addAction(okButton)
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func caculateData() -> Int {
+        return 2
     }
 
 }

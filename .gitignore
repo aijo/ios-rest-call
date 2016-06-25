@@ -1,7 +1,0 @@
-*.DS_Store
-*.tgz
-npm-debug.log
-README.html
-
-# Gradle:
-spring-android/.idea/gradle.xml
